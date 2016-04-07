@@ -23,20 +23,25 @@ class PrinterSpy
 end
 
 describe Interface do
-  it do
-    inputer = InputerStub.new("3")
-    printer = PrinterSpy.new
+  let(:inputer) { InputerStub.new(input) }
+  let(:printer) { PrinterSpy.new }
+  let(:interface) { Interface.new(inputer, printer) }
 
-    interface = Interface.new(inputer, printer)
-    interface.start(1)
-    expect(printer.result).to eq("Fizz")
+  context 'メニュー選択で1を選択した場合' do
+    let(:input) { "3" }
+
+    it do
+      interface.start(1)
+      expect(printer.result).to eq("Fizz")
+    end
   end
 
-  it do
-    printer = PrinterSpy.new
+  context 'メニュー選択で2を選択した場合' do
+    let(:input) { nil }
 
-    interface = Interface.new(nil, printer)
-    interface.start(2)
-    expect(printer.result).to be_nil
+    it do
+      interface.start(2)
+      expect(printer.result).to be_nil
+    end
   end
 end
