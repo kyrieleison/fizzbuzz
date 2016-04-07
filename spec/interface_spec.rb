@@ -6,7 +6,7 @@ class InputerStub
     @input = input
   end
 
-  def get
+  def gets
     @input
   end
 end
@@ -31,7 +31,7 @@ describe Interface do
     let(:input) { "3" }
 
     it do
-      interface.start(1)
+      interface.start("1")
       expect(printer.result).to eq("Fizz")
     end
   end
@@ -40,7 +40,7 @@ describe Interface do
     let(:input) { nil }
 
     it do
-      interface.start(2)
+      interface.start("2")
       expect(printer.result).to be_nil
     end
   end

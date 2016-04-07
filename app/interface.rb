@@ -7,9 +7,9 @@ class Interface
     @printer = printer
   end
 
-  def start(mode_number)
-    if mode_number == 1
-      number = @inputer.get
+  def start(mode)
+    if mode == "1"
+      number = @inputer.gets
       fizzbuzz = Fizzbuzz.new(number.to_i)
       @printer.print(fizzbuzz.exec)
     end
