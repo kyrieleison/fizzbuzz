@@ -31,4 +31,12 @@ describe Interface do
     interface.start(1)
     expect(printer.result).to eq("Fizz")
   end
+
+  it do
+    printer = PrinterSpy.new
+
+    interface = Interface.new(nil, printer)
+    interface.start(2)
+    expect(printer.result).to be_nil
+  end
 end

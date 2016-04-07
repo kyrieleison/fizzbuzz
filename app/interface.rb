@@ -8,8 +8,10 @@ class Interface
   end
 
   def start(mode_number)
-    number = @inputer.get
-    fizzbuzz = Fizzbuzz.new(number.to_i)
-    @printer.print(fizzbuzz.exec)
+    if mode_number == 1
+      number = @inputer.get
+      fizzbuzz = Fizzbuzz.new(number.to_i)
+      @printer.print(fizzbuzz.exec)
+    end
   end
 end
