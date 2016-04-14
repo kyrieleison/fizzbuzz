@@ -1,4 +1,5 @@
 require 'fizzbuzz'
+require 'integer_validator'
 
 class Interface
 
