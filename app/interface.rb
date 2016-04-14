@@ -10,8 +10,10 @@ class Interface
   def start(mode)
     if mode == "1"
       number = @inputer.gets
-      fizzbuzz = Fizzbuzz.new(number.to_i)
-      @printer.print(fizzbuzz.exec)
+      if IntegerValidator.new(number).valid
+        fizzbuzz = Fizzbuzz.new(number.to_i)
+        @printer.print(fizzbuzz.exec)
+      end
     end
   end
 end

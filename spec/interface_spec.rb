@@ -28,11 +28,22 @@ describe Interface do
   let(:interface) { Interface.new(inputer, printer) }
 
   context 'メニュー選択で1を選択した場合' do
-    let(:input) { "3" }
+    context '正常系' do
+      let(:input) { "3" }
 
-    it do
-      interface.start("1")
-      expect(printer.result).to eq("Fizz")
+      it do
+        interface.start("1")
+        expect(printer.result).to eq("Fizz")
+      end
+    end
+
+    context 'FizzBuzzに整数以外の値を入力した場合' do
+      let(:input) { "A" }
+
+      it do
+        interface.start("1")
+        expect(printer.result).to be_nil
+      end
     end
   end
 
