@@ -14,6 +14,13 @@ class Interface
       if IntegerValidator.new(number).valid
         fizzbuzz = Fizzbuzz.new(number.to_i)
         @printer.print(fizzbuzz.exec)
+        # データを保存
+        @logger.add(fizzbuzz.exec)
+      end
+    elsif mode == "2"
+      # データを出す
+      @logger.all.each do |log|
+        @printer.print(log)
       end
     end
   end
