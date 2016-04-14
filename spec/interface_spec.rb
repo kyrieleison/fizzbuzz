@@ -1,26 +1,6 @@
 require 'interface'
-
-class InputerStub
-  
-  def initialize(input)
-    @input = input
-  end
-
-  def gets
-    @input
-  end
-end
-
-class PrinterSpy
-
-  def print(arg)
-    @arg = arg
-  end
-
-  def result
-    @arg
-  end
-end
+require 'helpers/inputer_stab'
+require 'helpers/printer_spy'
 
 describe Interface do
   let(:inputer) { InputerStub.new(input) }
