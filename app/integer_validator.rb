@@ -5,13 +5,19 @@ class IntegerValidator
   end
 
   def valid
-    if @string == "0"
-      return true
-    end
-    if @string.to_i != 0
-      return true
-    end
+    return true if zero_of_string?
+    return true if integer?
     false
   end
+
+  private
+
+    def integer?
+      @string.to_i != 0
+    end
+
+    def zero_of_string?
+      @string == "0"
+    end
 end
 
