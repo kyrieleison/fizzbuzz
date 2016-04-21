@@ -4,11 +4,12 @@ class Logger
     @data = []
   end
 
-  def add(data)
-    @data << data
+  def add(input, output)
+    @data << input + " : " + output
   end
 
   def all
     @data
   end
+
 end

@@ -15,7 +15,7 @@ class Interface
         fizzbuzz = Fizzbuzz.new(number.to_i)
         @printer.print(fizzbuzz.exec)
         # データを保存
-        @logger.add(fizzbuzz.exec)
+        @logger.add(number, fizzbuzz.exec)
       end
     elsif mode == "2"
       # データを出す
