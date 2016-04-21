@@ -1,4 +1,5 @@
-require 'Interface'
+require 'interface'
+require 'logger'
 
 class Printer
 
@@ -7,6 +8,7 @@ class Printer
   end
 end
 
+interface = Interface.new(STDIN, Printer.new, Logger.new)
 while true do
   puts 'メニューを選択してください'
   menu = <<-'EOS'
@@ -28,5 +30,5 @@ while true do
 
   mode_number = STDIN.gets.chomp
   break if mode_number == "0"
-  Interface.new(STDIN, Printer.new).start(mode_number)
+  interface.start(mode_number)
 end

@@ -1,5 +1,4 @@
 require 'fizzbuzz'
-require 'logger'
 require 'integer_validator'
 
 class Interface
@@ -13,7 +12,7 @@ class Interface
   def start(mode)
     case mode
     when "1" then
-      number = @inputer.gets
+      number = @inputer.gets.chomp
       return unless IntegerValidator.new(number).valid
       fizzbuzz = Fizzbuzz.new(number.to_i)
       @printer.print(fizzbuzz.exec)
