@@ -1,11 +1,13 @@
 require 'fizzbuzz'
+require 'logger'
 require 'integer_validator'
 
 class Interface
 
-  def initialize(inputer, printer)
+  def initialize(inputer, printer, logger)
     @inputer = inputer
     @printer = printer
+    @logger  = logger
   end
 
   def start(mode)
