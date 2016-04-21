@@ -11,19 +11,15 @@ class Interface
   end
 
   def start(mode)
-    if mode == "1"
+    case mode
+    when "1" then
       number = @inputer.gets
-      if IntegerValidator.new(number).valid
-        fizzbuzz = Fizzbuzz.new(number.to_i)
-        @printer.print(fizzbuzz.exec)
-        # データを保存
-        @logger.add(number, fizzbuzz.exec)
-      end
-    elsif mode == "2"
-      # データを出す
-      @logger.all.each do |log|
-        @printer.print(log)
-      end
+      return unless IntegerValidator.new(number).valid
+      fizzbuzz = Fizzbuzz.new(number.to_i)
+      @printer.print(fizzbuzz.exec)
+      @logger.add(number, fizzbuzz.exec)
+    when "2" then
+      @logger.all.each {|log| @printer.print(log) }
     end
   end
 end
