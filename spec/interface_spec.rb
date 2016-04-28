@@ -15,7 +15,7 @@ describe Interface do
 
       it do
         interface.start("1")
-        expect(printer.result).to eq(["Fizz"])
+        expect(logger.all).to eq(["3 : Fizz"])
       end
     end
 
@@ -24,7 +24,7 @@ describe Interface do
 
       it do
         interface.start("1")
-        expect(printer.result).to be_empty
+        expect(logger.all).to be_empty
       end
     end
   end
@@ -36,7 +36,10 @@ describe Interface do
       logger.add("3", "Fizz")
       logger.add("5", "Buzz")
       interface.start("2")
-      expect(printer.result).to eq(["3 : Fizz", "5 : Buzz"])
+      aggregate_failures do
+        expect(printer.result.include?("3 : Fizz")).to be_truthy
+        expect(printer.result.include?("5 : Buzz")).to be_truthy
+      end
     end
   end
 end
