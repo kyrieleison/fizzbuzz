@@ -1,5 +1,6 @@
 require 'fizzbuzz_command'
 require 'log_command'
+require 'nil_command'
 
 class Interface
 
@@ -10,15 +11,16 @@ class Interface
   end
 
   def start(mode)
-    case mode
+    command = case mode
     when "1" then
       @printer.print("FizzBuzz 実行モード")
-      command = FizzbuzzCommand.new(@inputer, @printer, @logger)
-      command.run()
+      FizzbuzzCommand.new(@inputer, @printer, @logger)
     when "2" then
       @printer.print("FizzBuzz 履歴出力モード")
-      command = LogCommand.new(@printer, @logger)
-      command.run()
+      LogCommand.new(@printer, @logger)
+    else
+      NilCommand.new()
     end
+    command.run()
   end
 end

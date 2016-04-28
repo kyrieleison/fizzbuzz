@@ -29,17 +29,13 @@ describe Interface do
     end
   end
 
-  context 'メニュー選択で2を選択した場合' do
-    let(:input) { nil }
+  context 'メニューにない数字を選択した場合' do
+    let(:input) { "" }
 
     it do
-      logger.add("3", "Fizz")
-      logger.add("5", "Buzz")
-      interface.start("2")
-      aggregate_failures do
-        expect(printer.result.include?("3 : Fizz")).to be_truthy
-        expect(printer.result.include?("5 : Buzz")).to be_truthy
-      end
+      interface.start("100")
+      expect(printer.result).to be_empty
     end
   end
+
 end
