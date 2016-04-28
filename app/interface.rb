@@ -1,4 +1,5 @@
 require 'fizzbuzz_command'
+require 'log_command'
 
 class Interface
 
@@ -16,7 +17,8 @@ class Interface
       command.run()
     when "2" then
       @printer.print("FizzBuzz 履歴出力モード")
-      @logger.all.each {|log| @printer.print(log) }
+      command = LogCommand.new(@printer, @logger)
+      command.run()
     end
   end
 end
