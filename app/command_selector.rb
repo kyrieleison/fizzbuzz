@@ -2,7 +2,7 @@ require 'fizzbuzz_command'
 require 'log_command'
 require 'nil_command'
 
-class Interface
+class CommandSelector
 
   def initialize(inputer, printer, logger)
     @inputer = inputer
@@ -10,7 +10,7 @@ class Interface
     @logger  = logger
   end
 
-  def start(mode)
+  def select(mode)
     command = case mode
     when "1" then
       FizzbuzzCommand.new(@inputer, @printer, @logger)
