@@ -1,14 +1,8 @@
 require 'command_selector'
 require 'logger'
 
-class Printer
+command_selector = CommandSelector.new(STDIN, STDOUT, Logger.new)
 
-  def print(arg)
-    p arg
-  end
-end
-
-command_selector = CommandSelector.new(STDIN, Printer.new, Logger.new)
 puts 'メニューを選択してください'
 menu = <<-'EOS'
 1を入力
