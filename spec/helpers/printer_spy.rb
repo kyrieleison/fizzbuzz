@@ -1,7 +1,11 @@
 class PrinterSpy
 
+  def initialize
+    @arg = []
+  end
+
   def print(arg)
-    @arg = arg
+    @arg << arg
   end
 
   def result
