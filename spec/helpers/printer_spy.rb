@@ -4,7 +4,7 @@ class PrinterSpy
     @arg = []
   end
 
-  def print(arg)
+  def puts(arg)
     @arg << arg
   end
 
