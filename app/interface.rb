@@ -21,6 +21,6 @@ class Interface
     else
       NilCommand.new()
     end
-    command.run()
+    command
   end
 end
