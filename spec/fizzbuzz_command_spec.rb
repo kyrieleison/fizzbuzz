@@ -7,7 +7,7 @@ describe FizzbuzzCommand do
   let(:inputer) { InputerStub.new(input) }
   let(:printer) { PrinterSpy.new }
   let(:logger) { Logger.new }
-  let(:command) { FizzbuzzCommand.new(inputer, printer, logger) }
+  let(:command) { described_class.new(inputer, printer, logger) }
 
   context '正常系' do
     let(:input) { "3" }
