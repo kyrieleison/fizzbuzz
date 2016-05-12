@@ -30,5 +30,5 @@ while true do
 
   mode_number = STDIN.gets.chomp
   break if mode_number == "0"
-  interface.start(mode_number)
+  interface.start(mode_number).run
 end
