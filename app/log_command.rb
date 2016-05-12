@@ -6,6 +6,7 @@ class LogCommand
   end
 
   def run
+    @printer.print("FizzBuzz 履歴出力モード")
     @logger.all.each {|log| @printer.print(log) }
   end
 end

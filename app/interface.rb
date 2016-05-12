@@ -13,10 +13,8 @@ class Interface
   def start(mode)
     command = case mode
     when "1" then
-      @printer.print("FizzBuzz 実行モード")
       FizzbuzzCommand.new(@inputer, @printer, @logger)
     when "2" then
-      @printer.print("FizzBuzz 履歴出力モード")
       LogCommand.new(@printer, @logger)
     else
       NilCommand.new()

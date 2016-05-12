@@ -10,6 +10,7 @@ class FizzbuzzCommand
   end
 
   def run
+    @printer.print("FizzBuzz 実行モード")
     number = @inputer.gets.chomp
     return unless IntegerValidator.new(number).valid
     fizzbuzz = Fizzbuzz.new(number.to_i)
