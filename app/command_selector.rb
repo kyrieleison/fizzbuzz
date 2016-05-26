@@ -1,5 +1,6 @@
 require 'fizzbuzz_command'
 require 'log_command'
+require 'save_command'
 require 'nil_command'
 
 class CommandSelector
@@ -16,6 +17,8 @@ class CommandSelector
       FizzbuzzCommand.new(@inputer, @printer, @logger)
     when "2" then
       LogCommand.new(@printer, @logger)
+    when "3" then
+      SaveCommand.new()
     else
       NilCommand.new()
     end

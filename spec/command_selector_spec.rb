@@ -22,6 +22,12 @@ describe CommandSelector do
     end
   end
 
+  context 'メニュー選択で3を選択した場合' do
+    it do
+      expect(command_selector.select("3")).to be_a(SaveCommand)
+    end
+  end
+
   context 'メニューにない数字を選択した場合' do
     it do
       expect(command_selector.select("100")).to be_a(NilCommand)
