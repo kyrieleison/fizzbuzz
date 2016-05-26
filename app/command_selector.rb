@@ -5,10 +5,11 @@ require 'nil_command'
 
 class CommandSelector
 
-  def initialize(inputer, printer, logger)
+  def initialize(inputer, printer, logger, filer)
     @inputer = inputer
     @printer = printer
     @logger  = logger
+    @filer   = filer
   end
 
   def select(mode)
@@ -18,7 +19,7 @@ class CommandSelector
     when "2" then
       LogCommand.new(@printer, @logger)
     when "3" then
-      SaveCommand.new()
+      SaveCommand.new(@logger, @filer)
     else
       NilCommand.new()
     end

@@ -1,13 +1,16 @@
 require 'command_selector'
 require 'logger'
+require 'filer'
 require 'helpers/inputer_stab'
 require 'helpers/printer_spy'
 
 describe CommandSelector do
+  let(:path) { './spec/fixtures/log.txt' }
   let(:inputer) { InputerStub.new(input) }
   let(:printer) { PrinterSpy.new }
   let(:logger) { Logger.new }
-  let(:command_selector) { described_class.new(inputer, printer, logger) }
+  let(:filer) { Filer.new(path) }
+  let(:command_selector) { described_class.new(inputer, printer, logger, filer) }
   let(:input) { "3" }
 
   context 'メニュー選択で1を選択した場合' do
