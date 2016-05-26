@@ -12,6 +12,6 @@ describe SaveCommand do
     logger.add("3", "Fizz")
     logger.add("5", "Buzz")
     command.run
-    expect(filer.result).to eq(["3 : Fizz", "5 : Buzz"])
+    expect(filer.read).to eq("3 : Fizz\n5 : Buzz\n")
   end
 end

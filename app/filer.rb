@@ -15,11 +15,11 @@ class Filer
     end
   end
 
-  def result
-    lines = []
+  def read
+    lines = ""
     File.open(@path) do |file|
       file.each_line do |line|
-        lines << line.chomp
+        lines << line
       end
     end
     lines
