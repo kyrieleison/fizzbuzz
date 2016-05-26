@@ -1,0 +1,8 @@
+3 : Fizz
+15 : FizzBuzz
+115 : Buzz
+200 : Buzz
+232 : 232
+4252 : 4252
+335 : Buzz
+453 : Fizz
