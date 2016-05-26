@@ -10,11 +10,6 @@ describe SaveCommand do
     logger.add("3", "Fizz")
     logger.add("5", "Buzz")
     command.run
-    # File.open('../log/log.txt') do |file|
-    #   file.each_line do |line|
-    #     lines << line
-    #   end
-    # end
     expect(Filer.result).to eq(["3 : Fizz", "5 : Buzz"])
   end
 end
