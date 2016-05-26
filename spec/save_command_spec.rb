@@ -3,8 +3,9 @@ require 'logger'
 require 'filer'
 
 describe SaveCommand do
+  let(:path) { './spec/fixtures/log.txt' }
   let(:logger) { Logger.new }
-  let(:filer) { Filer.new }
+  let(:filer) { Filer.new(path) }
   let(:command) { described_class.new(logger, filer) }
 
   it do

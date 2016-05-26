@@ -1,5 +1,3 @@
-require 'filer'
-
 class SaveCommand
 
   def initialize(logger, filer)

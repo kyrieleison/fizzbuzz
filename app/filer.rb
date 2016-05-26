@@ -1,9 +1,14 @@
 class Filer 
 
+  def initialize(path)
+    @path = path
+    unless File.exist?(@path) then
+      FileUtils.touch(@path)
+    end
+  end
+
   def write(logs)
-    path = './log/log.txt'
-    # return unless File.exist?(path)
-    File.open(path, 'w') do |file|
+    File.open(@path, 'w') do |file|
       logs.each do |log|
         file.write(log + "\n")
       end
@@ -12,9 +17,7 @@ class Filer
 
   def result
     lines = []
-    path = './log/log.txt'
-    # return unless File.exist?(path)
-    File.open(path) do |file|
+    File.open(@path) do |file|
       file.each_line do |line|
         lines << line.chomp
       end
