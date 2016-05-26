@@ -19,7 +19,7 @@ class CommandSelector
     when "2" then
       LogCommand.new(@printer, @logger)
     when "3" then
-      SaveCommand.new(@logger, @filer)
+      SaveCommand.new(@printer, @logger, @filer)
     else
       NilCommand.new()
     end

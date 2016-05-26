@@ -1,7 +1,8 @@
 require 'command_selector'
 require 'logger'
+require 'filer'
 
-command_selector = CommandSelector.new(STDIN, STDOUT, Logger.new)
+command_selector = CommandSelector.new(STDIN, STDOUT, Logger.new, Filer.new('./log/log.txt'))
 
 puts 'メニューを選択してください'
 menu = <<-'EOS'
