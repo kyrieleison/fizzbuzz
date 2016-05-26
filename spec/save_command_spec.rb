@@ -4,12 +4,13 @@ require 'filer'
 
 describe SaveCommand do
   let(:logger) { Logger.new }
-  let(:command) { described_class.new(logger) }
+  let(:filer) { Filer.new }
+  let(:command) { described_class.new(logger, filer) }
 
   it do
     logger.add("3", "Fizz")
     logger.add("5", "Buzz")
     command.run
-    expect(Filer.result).to eq(["3 : Fizz", "5 : Buzz"])
+    expect(filer.result).to eq(["3 : Fizz", "5 : Buzz"])
   end
 end

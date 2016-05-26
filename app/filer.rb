@@ -1,6 +1,16 @@
 class Filer 
 
-  def self.result
+  def write(logs)
+    path = './log/log.txt'
+    # return unless File.exist?(path)
+    File.open(path, 'w') do |file|
+      logs.each do |log|
+        file.write(log + "\n")
+      end
+    end
+  end
+
+  def result
     lines = []
     path = './log/log.txt'
     # return unless File.exist?(path)
